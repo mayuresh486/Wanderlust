@@ -91,6 +91,9 @@ app.use((req,res,next)=>{
 })
 
 //Express Route
+app.get("/", (req, res) => {
+    res.redirect("/listing");
+});
 app.use("/listing",listing);
 app.use("/listing/:id/review",review);
 app.use("/",user);
