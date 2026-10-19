@@ -92,15 +92,13 @@ app.use((req,res,next)=>{
 
 //Express Route
 app.get("/", (req, res) => {
-    res.redirect("/listing");
+    // res.redirect("/listing");
+    res.send("Wanderlust homepage is working!");
 });
 app.use("/listing",listing);
 app.use("/listing/:id/review",review);
 app.use("/",user);
 
-app.get("/listing",(req,res)=>{
-    res.redirect("/listing");
-})
 app.all("/*splat",(req,res,next)=>{
     next(new ExpressError(404,"Page not found!"));
 })
