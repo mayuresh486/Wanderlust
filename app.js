@@ -3,7 +3,7 @@ if(process.env.NODE_ENV !="production"){
 }
 const express = require("express");
 const app = express();
-const port = 3030;
+const port = process.env.PORT || 3030;
 const mongoose = require("mongoose");
 const path = require("path");
 const Listing = require("./models/listing.js");
@@ -32,9 +32,9 @@ const store = MongoStore.create({
     touchAfter: 24 * 3600,
 });
 
-store.on("error",()=>{
-    console.log("ERROR in MONGO SESSION STORE",err);
-})
+store.on("error", (err) => {
+    console.log("ERROR in MONGO SESSION STORE", err);
+});
 
 const sessionOption = ({
     secret:process.env.SECRET,
