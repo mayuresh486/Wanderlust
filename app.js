@@ -92,8 +92,7 @@ app.use((req,res,next)=>{
 
 //Express Route
 app.get("/", (req, res) => {
-    // res.redirect("/listing");
-    res.send("Wanderlust homepage is working!");
+    res.redirect("/listing");
 });
 app.use("/listing",listing);
 app.use("/listing/:id/review",review);
